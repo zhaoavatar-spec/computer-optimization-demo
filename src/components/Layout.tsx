@@ -7,10 +7,10 @@ type Props = { active: PageKey; onNavigate: (key: PageKey) => void; children: Re
 
 export default function Layout({ active, onNavigate, children, theme = 'light' }: Props) {
   return (
-    <div className={`app-shell ${theme}`}>
+    <div className={`app-shell ${theme} active-${active}`}>
       <Sidebar active={active} onNavigate={onNavigate} />
       <main className="main-area">
-        <Topbar />
+        <Topbar theme={theme} />
         {children}
       </main>
     </div>

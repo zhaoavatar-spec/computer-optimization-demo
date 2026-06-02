@@ -18,6 +18,14 @@ export const navItems = [
 
 export const dashboardReminders = ['临电一区配电箱防雨检查', '清水池穿墙套管节点隐蔽留痕', '基坑一区南侧临边防护复查'];
 
+export const dashboardMetrics = [
+  { label: '今日任务', value: '12', sub: '较昨日 +3', tone: 'cyan' },
+  { label: '高风险点', value: '4', sub: '需优先处理', tone: 'red' },
+  { label: '隐蔽节点', value: '6', sub: '今日待验收', tone: 'blue' },
+  { label: 'AI 识别', value: '28', sub: '照片样本', tone: 'green' },
+  { label: '整改闭环', value: '86%', sub: '本周完成率', tone: 'orange' },
+];
+
 export const workflowStats = [
   { label: '任务提醒', value: '12' },
   { label: '现场取证', value: '3' },
@@ -34,10 +42,64 @@ export const keyTasks = [
   { priority: '中', task: '防水施工区基层处理检查', trigger: '施工计划触发', advice: '拍摄基层清理全景与细部节点', status: '待巡检' },
 ];
 
+export const dashboardTaskRows = [
+  { priority: '高', task: '临电一区配电箱防雨检查', trigger: '中雨预警触发', area: '临电一区 LD-01', advice: '雨前完成防雨、接地、电缆状态核验', status: '待执行' },
+  { priority: '高', task: '清水池穿墙套管节点隐蔽留痕', trigger: '计划隐蔽时间临近', area: '清水池东侧 A3 轴', advice: '补充止水环近景与验收签字', status: '待确认' },
+  { priority: '中', task: '基坑一区南侧临边防护复查', trigger: '昨日问题复查', area: '1# 主基坑南侧', advice: '复核防护栏杆、踢脚板与警示标识', status: '整改中' },
+  { priority: '中', task: '防水施工区基层处理检查', trigger: '施工计划触发', area: '防水施工一区', advice: '拍摄基层清理全景与细部节点', status: '待巡检' },
+  { priority: '高', task: '池壁施工缝止水钢板节点检查', trigger: '隐蔽节点预警', area: '清水池北侧 B2 轴', advice: '核验焊缝搭接长度与连续性', status: '待验收' },
+];
+
+export const dashboardRiskPanels = [
+  { area: '1# 主基坑', desc: '边坡支护、临边防护、排水沟', level: '高' },
+  { area: '清水池结构区', desc: '穿墙套管、止水钢板、隐蔽资料', level: '高' },
+  { area: '临电一区', desc: '配电箱防雨、接地、电缆走向', level: '高' },
+  { area: '防水施工区', desc: '基层清理、积水、材料堆放', level: '中' },
+];
+
+export const dashboardTrendBars = [
+  { day: '周一', value: 56 },
+  { day: '周二', value: 68 },
+  { day: '周三', value: 82 },
+  { day: '周四', value: 64 },
+  { day: '周五', value: 76 },
+  { day: '周六', value: 48 },
+  { day: '周日', value: 60 },
+];
+
+export const dashboardEvents = [
+  { time: '09:10', text: 'AI 识别临电一区照片 4 张，提示防雨遮挡不足' },
+  { time: '09:35', text: '清水池穿墙套管节点资料缺少止水环近景' },
+  { time: '10:05', text: '基坑南侧临边防护复查任务已派发' },
+  { time: '10:40', text: '今日质安日报待生成，需先完成人工确认' },
+];
+
 export const inspectionScopes = [
   { name: '1#主基坑', risk: '高风险', count: '12项检查' },
   { name: '2#承台钢筋区', risk: '中风险', count: '9项检查' },
   { name: '防水施工区', risk: '中风险', count: '8项检查' },
+];
+
+export const taskSummaryCards = [
+  { label: '推荐区域', value: '6', sub: 'AI 自动筛选' },
+  { label: '高风险任务', value: '4', sub: '需优先巡检' },
+  { label: '待隐蔽验收', value: '3', sub: '今日截止' },
+  { label: '未闭环问题', value: '5', sub: '需复查确认' },
+];
+
+export const inspectionScopeCards = [
+  { name: '1# 主基坑', risk: '高风险', count: '12 项检查', owner: '土建一班组', time: '09:30-10:30', desc: '边坡支护、临边防护、降排水与上下通道为今日重点。' },
+  { name: '临电一区', risk: '高风险', count: '8 项检查', owner: '机电安装班组', time: '10:30-11:00', desc: '受中雨预警影响，重点核验配电箱防雨、接地与电缆走向。' },
+  { name: '清水池结构区', risk: '高风险', count: '10 项检查', owner: '安装二班组', time: '14:00-15:30', desc: '穿墙套管、止水钢板节点临近隐蔽，需补齐影像资料。' },
+  { name: '防水施工区', risk: '中风险', count: '8 项检查', owner: '防水施工队', time: '15:30-16:20', desc: '基层处理、积水清理、材料堆放及成品保护同步检查。' },
+];
+
+export const inspectionScopeRows = [
+  { area: '1# 主基坑南侧', code: 'JK-01-S', risk: '高', items: '12 项', trigger: '昨日问题复查 + 高风险区域', owner: '王班长', time: '09:30', status: '已推荐' },
+  { area: '临电一区配电箱', code: 'LD-01', risk: '高', items: '8 项', trigger: '中雨预警触发', owner: '李师傅', time: '10:30', status: '已推荐' },
+  { area: '清水池穿墙套管', code: 'YB-QS-A3', risk: '高', items: '10 项', trigger: '隐蔽时间临近', owner: '刘工', time: '14:00', status: '已推荐' },
+  { area: '防水施工一区', code: 'FS-01', risk: '中', items: '8 项', trigger: '施工计划触发', owner: '赵师傅', time: '15:30', status: '待选择' },
+  { area: '2# 承台钢筋区', code: 'CT-02', risk: '中', items: '9 项', trigger: '钢筋绑扎完成', owner: '周工', time: '16:00', status: '待选择' },
 ];
 
 export const checklist = [

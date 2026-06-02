@@ -1,9 +1,12 @@
 import { systemName, userInfo } from '../data/mockData';
 
-export default function Topbar() {
+type Props = { theme?: 'dark' | 'light' };
+
+export default function Topbar({ theme = 'light' }: Props) {
   return (
     <header className="topbar">
       <div>
+        <span className="topbar-kicker">{theme === 'dark' ? 'COMMAND OVERVIEW' : 'GOVERNMENT INSPECTION WORKBENCH'}</span>
         <h1>{systemName}</h1>
         <p>建设期质量安全全过程监督 · AI辅助识别 · 闭环整改 · 可视化管理</p>
       </div>
